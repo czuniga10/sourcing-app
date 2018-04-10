@@ -1,0 +1,23 @@
+{
+  "name": "sourcing-app",
+  "version": "1.0.0",
+  "description": "sourcing react native app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/czuniga10/sourcing-app.git"
+  },
+  "author": "Chad Zuniga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/czuniga10/sourcing-app/issues"
+  },
+  "homepage": "https://github.com/czuniga10/sourcing-app#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "npm": "^5.8.0"
+  }
+}
