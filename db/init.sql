@@ -35,6 +35,13 @@ CREATE TABLE users (
     company TEXT
  );
 
+CREATE TABLE project (
+    id SERIAL PRIMARY KEY,
+    user_id int references users(id),
+    name TEXT,
+    date DATE
+)
+
 CREATE TABLE li_profile (
     id SERIAL PRIMARY KEY,
     summary TEXT,
@@ -45,7 +52,8 @@ CREATE TABLE li_profile (
     click_status_id int references click_status(id),
     dup_status_id int references duplicate_status(id),
     can_view int references status(id),
-    swipe_status int references swipe_status(id)
+    swipe_status int references swipe_status(id),
+    project_id int references project(id)
 );
 
 
