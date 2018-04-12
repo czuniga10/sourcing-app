@@ -40,7 +40,7 @@ CREATE TABLE project (
     user_id int references users(id),
     name TEXT,
     date DATE
-)
+);
 
 CREATE TABLE li_profile (
     id SERIAL PRIMARY KEY,
@@ -55,7 +55,6 @@ CREATE TABLE li_profile (
     swipe_status int references swipe_status(id),
     project_id int references project(id)
 );
-
 
 
 
