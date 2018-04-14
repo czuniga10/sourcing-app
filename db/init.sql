@@ -5,6 +5,7 @@ DROP TABLE IF EXISTS
     duplicate_status,
     swipe_status,
     users, 
+    projects,
     li_profile;
 
 --Please keep the order of the CREATE TABLE inserts the same
