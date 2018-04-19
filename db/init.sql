@@ -1,30 +1,11 @@
 --Drops current tables in DB and re-adds tables over again on Server restart
 
 DROP TABLE IF EXISTS 
-    click_status,
-    duplicate_status,
-    swipe_status,
     users, 
     projects,
     li_profile;
 
 --Please keep the order of the CREATE TABLE inserts the same
-
-
-CREATE TABLE click_status (
-    id SERIAL PRIMARY KEY,
-    is_clicked TEXT
- );
-
-CREATE TABLE duplicate_status (
-    id SERIAL PRIMARY KEY,
-    is_duplicate TEXT
- );
-
-CREATE TABLE swipe_status (
-    id SERIAL PRIMARY KEY,
-    swipe_status TEXT
- );
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
@@ -36,11 +17,11 @@ CREATE TABLE users (
     company TEXT
  );
 
-CREATE TABLE project (
+CREATE TABLE projects (
     id SERIAL PRIMARY KEY,
     user_id int references users(id),
     name TEXT,
-    date DATE
+    date TEXT
 );
 
 CREATE TABLE li_profile (
@@ -49,12 +30,10 @@ CREATE TABLE li_profile (
     experience TEXT,
     skills TEXT,
     education TEXT,
-    img_url TEXT
-    click_status_id int references click_status(id),
-    dup_status_id int references duplicate_status(id),
-    can_view int references status(id),
-    swipe_status int references swipe_status(id),
-    project_id int references project(id)
+    avatar TEXT,
+    project_id int references projects(id),
+    swiped_right TEXT,
+    swiped_left TEXT
 );
 
 
@@ -63,24 +42,6 @@ CREATE TABLE li_profile (
 
 --Status Table
 
-INSERT INTO click_status ( is_clicked )
-VALUES
-    ('seen'),
-    ('not seen'),
-;
-
-INSERT INTO duplicate_status ( is_duplicate )
-VALUES
-    ('yes'),
-    ('no'),
-;
-
-INSERT INTO swipe_status ( swipe_status )
-VALUES
-    ('center')
-    ('right'),
-    ('left'),
-;
 
 --User Table
 
@@ -100,10 +61,16 @@ VALUES
 
 ;
 
---LinkedIn Profiles
+--Projects
 
-INSERT INTO li_profile ( summary, experience, skills, education, img_url, click_status_id, dup_status_id swipe_status )
+INSERT INTO projects (user_id, name, date)
 VALUES
-    ('summary example', 'experience example', 'skills example', 'education example', 'img url example', 2, 2, 1)
+    (1, 'Test Project', '4/18/2018')
 ;
 
+--LinkedIn Profiles
+
+INSERT INTO li_profile ( summary, experience, skills, education, avatar, project_id, swiped_right, swiped_left )
+VALUES
+    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 1, 'FALSE', 'FALSE')
+;
