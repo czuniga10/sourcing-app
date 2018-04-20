@@ -1,7 +1,7 @@
 const express = require('express');
 
 const addMiddleware = require('./middleware/decorate.middleware');
-const delegateRoutes = require('./routers/delegateRoutes');
+const delegateRoutes = require('./routers/delegate.routers');
 
 const app = express();
 
