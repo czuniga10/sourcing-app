@@ -65,12 +65,28 @@ VALUES
 
 INSERT INTO projects (user_id, name, date)
 VALUES
-    (1, 'Test Project', '4/18/2018')
+    (1, 'Test Project', '4/18/2018'),
+    (1, 'Test Project2', '4/29/2018'),
+    (2, 'Test Project', '4/29/2018'),
+    (3, 'Test Project', '4/29/2018'),
+    (4, 'Test Project', '4/29/2018'),
+    (5, 'Test Project', '4/29/2018'),
+    (6, 'Test Project', '4/29/2018'),
+    (7, 'Test Project', '4/29/2018'),
+    (8, 'Test Project', '4/29/2018'),
+    (9, 'Test Project', '4/29/2018'),
+    (10, 'Test Project', '4/29/2018'),
+    (11, 'Test Project', '4/29/2018'),
 ;
 
 --LinkedIn Profiles
 
 INSERT INTO li_profile ( summary, experience, skills, education, avatar, project_id, swiped_right, swiped_left )
 VALUES
-    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 1, 'FALSE', 'FALSE')
+    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 1, 'FALSE', 'FALSE'),
+    ('summary example1', 'experience example1', 'skills example1', 'education example1', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 1, 'FALSE', 'FALSE')
+    ('summary example2', 'experience example2', 'skills example2', 'education example2', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 1, 'FALSE', 'FALSE')
+    ('summary example3', 'experience example3', 'skills example3', 'education example3', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 1, 'FALSE', 'FALSE')
+    ('summary example4', 'experience example4', 'skills example4', 'education example4', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 1, 'FALSE', 'FALSE')
+
 ;
