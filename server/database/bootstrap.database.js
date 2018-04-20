@@ -1,5 +1,5 @@
 const massive = require('massive');
-const {connectionString} = require('./keys.database');
+const connectionString = require('./keys.database');
 
 let db;
 let messageString;
