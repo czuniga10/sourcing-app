@@ -15,22 +15,22 @@ authRouter.post('/register', (req, res) => {
     const db = getDb();
     const { username, first_name, last_name, email, password, company } = req.body;
     db.CREATE.create_user([ username, first_name, last_name, email, password, company ])
-        .then( () => res.status(200).send())
+        .then( (user) => res.status(200).send(user))
         .catch( err => res.status(500).send(err))
 });
-
+//test worked
 authRouter.put('/update/:id', (req, res) => {
     const db = getDb();
     const id = req.params.id;
-    const { first_name, last_name, company, address, city, state, zip_code, phone, email } = req.body;
-    db.update_user([id, first_name, last_name, company, address, city, state, zip_code, phone, email])
+    const { username, first_name, last_name, email, password, company } = req.body;
+    db.UPDATE.update_user([id, username, first_name, last_name, email, password, company])
         .then( promise => res.status(200).send(promise))
         .catch( err => res.status(500).send(err) )
 });
 
 authRouter.delete('/delete/:id', (req, res) => {
     const db = getDb();
-    db.delete_user(req.params.id)
+    db.DELETE.delete_user(req.params.id)
         .then( () => res.status(200).send() )
         .catch( err => res.status(500).send(err) )
 });
