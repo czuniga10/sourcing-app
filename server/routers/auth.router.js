@@ -27,8 +27,8 @@ authRouter.put('/update/:id', (req, res) => {
         .then( promise => res.status(200).send(promise))
         .catch( err => res.status(500).send(err) )
 });
-
-authRouter.delete('/delete/:id', (req, res) => {
+//test works ... updates status_id = 2
+authRouter.put('/delete/:id', (req, res) => {
     const db = getDb();
     db.DELETE.delete_user(req.params.id)
         .then( () => res.status(200).send() )

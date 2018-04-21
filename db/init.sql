@@ -1,11 +1,17 @@
 --Drops current tables in DB and re-adds tables over again on Server restart
 
 DROP TABLE IF EXISTS 
+    status,
     users, 
     projects,
     li_profile;
 
 --Please keep the order of the CREATE TABLE inserts the same
+
+CREATE TABLE status (
+    id SERIAL PRIMARY KEY,
+    status TEXT
+ );
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
@@ -14,7 +20,8 @@ CREATE TABLE users (
     last_name TEXT,
     email TEXT unique, 
     password TEXT,
-    company TEXT
+    company TEXT,
+    status_id int references status(id)
  );
 
 CREATE TABLE projects (
@@ -42,21 +49,26 @@ CREATE TABLE li_profile (
 
 --Status Table
 
+INSERT INTO status ( status )
+VALUES
+    ('active'),
+    ('inactive')
 
+;
 --User Table
 
-INSERT INTO users ( username, first_name, last_name, email, password, company )
+INSERT INTO users ( username, first_name, last_name, email, password, company, status_id )
 VALUES
-    ('Rec0', 'Chad', 'Zuniga', 'czuniga@thumbtack.com', 'password1', 'Thumbtack'),
-    ('Rec1', 'Cam', 'Crump', 'ccrump@thumbtack.com', 'password1', 'Thumbtack'),
-    ('Rec2', 'James', 'Adams', 'jadams@thumbtack.com', 'password1', 'Thumbtack'),
-    ('Rec3', 'Jeremy', 'Oslund', 'joslund@thumbtack.com', 'password1', 'Thumbtack'),
-    ('Rec4', 'Jacob', 'Gibson', 'jgibson@thumbtack.com', 'password1', 'Thumbtack'),
-    ('Rec5', 'Sarah', 'Paulson', 'spaulson@thumbtack.com', 'password1', 'Thumbtack'),
-    ('Rec6', 'Steven', 'Pollock', 'spollock@thumbtack.com', 'password1', 'Thumbtack'),
-    ('Rec7', 'Noah', 'Lee', 'nlee@thumbtack.com', 'password1', 'Thumbtack'),
-    ('Rec8', 'Sabrina', 'Parry', 'sparry@thumbtack.com', 'password1', 'Thumbtack'),
-    ('Rec9', 'Joe', 'Mero', 'jmero@thumbtack.com', 'password1', 'Thumbtack')
+    ('Rec0', 'Chad', 'Zuniga', 'czuniga@thumbtack.com', 'password1', 'Thumbtack', 1),
+    ('Rec1', 'Cam', 'Crump', 'ccrump@thumbtack.com', 'password1', 'Thumbtack', 1),
+    ('Rec2', 'James', 'Adams', 'jadams@thumbtack.com', 'password1', 'Thumbtack', 1),
+    ('Rec3', 'Jeremy', 'Oslund', 'joslund@thumbtack.com', 'password1', 'Thumbtack', 1),
+    ('Rec4', 'Jacob', 'Gibson', 'jgibson@thumbtack.com', 'password1', 'Thumbtack', 1),
+    ('Rec5', 'Sarah', 'Paulson', 'spaulson@thumbtack.com', 'password1', 'Thumbtack', 1),
+    ('Rec6', 'Steven', 'Pollock', 'spollock@thumbtack.com', 'password1', 'Thumbtack', 1),
+    ('Rec7', 'Noah', 'Lee', 'nlee@thumbtack.com', 'password1', 'Thumbtack', 1),
+    ('Rec8', 'Sabrina', 'Parry', 'sparry@thumbtack.com', 'password1', 'Thumbtack', 1),
+    ('Rec9', 'Joe', 'Mero', 'jmero@thumbtack.com', 'password1', 'Thumbtack', 1)
 
 
 ;
