@@ -95,6 +95,7 @@ VALUES
 
 INSERT INTO li_profile ( summary, experience, skills, education, avatar, project_id, swiped_right, swiped_left )
 VALUES
+    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 1, 'FALSE', 'FALSE'),
     ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 1, 'FALSE', 'FALSE')
 
 ;
