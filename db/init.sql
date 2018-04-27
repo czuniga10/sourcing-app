@@ -38,9 +38,11 @@ CREATE TABLE li_profile (
     skills TEXT,
     education TEXT,
     avatar TEXT,
+    profile TEXT,
     project_id int references projects(id),
-    swiped_right TEXT,
-    swiped_left TEXT
+    swiped_right BOOLEAN,
+    swiped_left BOOLEAN,
+    status_id int references status(id)
 );
 
 
@@ -93,9 +95,37 @@ VALUES
 
 --LinkedIn Profiles
 
-INSERT INTO li_profile ( summary, experience, skills, education, avatar, project_id, swiped_right, swiped_left )
+INSERT INTO li_profile ( summary, experience, skills, education, avatar, profile, project_id, swiped_right, swiped_left, status_id )
 VALUES
-    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 1, 'FALSE', 'FALSE'),
-    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 1, 'FALSE', 'FALSE')
-
+    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 'www.linkedin.com', 1, TRUE, FALSE, 1),
+    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 'www.linkedin.com', 1, FALSE, FALSE, 1),
+    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 'www.linkedin.com', 1, FALSE, FALSE, 2),
+    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 'www.linkedin.com', 2, FALSE, FALSE, 1),
+    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 'www.linkedin.com', 2, FALSE, FALSE, 2),
+    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 'www.linkedin.com', 2, FALSE, FALSE, 1),
+    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 'www.linkedin.com', 2, FALSE, FALSE, 2),
+    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 'www.linkedin.com', 3, FALSE, FALSE, 1),
+    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 'www.linkedin.com', 3, FALSE, FALSE, 2),
+    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 'www.linkedin.com', 3, FALSE, FALSE, 1),
+    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 'www.linkedin.com', 3, FALSE, FALSE, 2),
+    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 'www.linkedin.com', 4, FALSE, FALSE, 1),
+    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 'www.linkedin.com', 4, FALSE, FALSE, 2),
+    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 'www.linkedin.com', 4, FALSE, FALSE, 1),
+    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 'www.linkedin.com', 5, FALSE, FALSE, 2),
+    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 'www.linkedin.com', 5, FALSE, FALSE, 1),
+    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 'www.linkedin.com', 6, FALSE, FALSE, 2),
+    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 'www.linkedin.com', 7, FALSE, FALSE, 1),
+    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 'www.linkedin.com', 8, FALSE, FALSE, 2),
+    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 'www.linkedin.com', 9, FALSE, FALSE, 2),
+    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 'www.linkedin.com', 9, FALSE, FALSE, 1),
+    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 'www.linkedin.com', 9, FALSE, FALSE, 1),
+    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 'www.linkedin.com', 9, FALSE, FALSE, 2),
+    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 'www.linkedin.com', 10, FALSE, FALSE, 1),
+    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 'www.linkedin.com', 10, FALSE, FALSE, 1),
+    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 'www.linkedin.com', 10, FALSE, FALSE, 2),
+    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 'www.linkedin.com', 11, FALSE, FALSE, 1),
+    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 'www.linkedin.com', 11, FALSE, FALSE, 1),
+    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 'www.linkedin.com', 12, FALSE, FALSE, 1),
+    ('summary example', 'experience example', 'skills example', 'education example', 'https://www.goaltos.com/wp-content/uploads/sites/4559/2018/01/avatar-1577909_960_720.png', 'www.linkedin.com', 12, FALSE, FALSE, 1)
+    
 ;

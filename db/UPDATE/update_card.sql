@@ -5,9 +5,11 @@ set
     skills = $4,
     education = $5,
     avatar = $6,
-    project_id = $7,
-    swiped_right = $8,
-    swiped_left = $9    
+    profile = $7,
+    project_id = $8,
+    swiped_right = $9,
+    swiped_left = $10,
+    status_id = $11    
 where
     id = $1
     

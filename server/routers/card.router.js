@@ -6,10 +6,33 @@ const cardRouter = express.Router();
 cardRouter.get('/:projectId', (req, res) => {
     const projectId = req.params.projectId;
     const db = getDb();
-    db.READ.get_project_cards( [projectId] )
+    db.READ.get_all_project_cards( [projectId] )
         .then( cards => res.status(200).send(cards))
         .catch( err => res.status(500).send(err))
 });
+//test works
+//
+//gets all yup cards
+//
+cardRouter.get('/yup/:projectId', (req, res) => {
+    const projectId = req.params.projectId;
+    const db = getDb();
+    db.READ.get_swiped_project_cards( [projectId] )
+        .then( cards => res.status(200).send(cards))
+        .catch( err => res.status(500).send(err))
+});
+//test works
+//
+//gets all un swiped cards
+//
+cardRouter.get('/ready/:projectId', (req, res) => {
+    const projectId = req.params.projectId;
+    const db = getDb();
+    db.READ.get_ready_project_cards( [projectId] )
+        .then( cards => res.status(200).send(cards))
+        .catch( err => res.status(500).send(err))
+});
+
 //test works
 cardRouter.get('/:projectId/:cardId', (req, res) => {
     const projectId = req.params.projectId;
@@ -31,8 +54,8 @@ cardRouter.post('/create', (req, res) => {
 cardRouter.put('/update/:id', (req, res) => {
     const db = getDb();
     const id = req.params.id;
-    const { summary, experience, skills, education, avatar, project_id, swiped_right, swiped_left } = req.body;
-    db.UPDATE.update_card([ id, summary, experience, skills, education, avatar, project_id, swiped_right, swiped_left ])
+    const { summary, experience, skills, education, avatar, profile, project_id, swiped_right, swiped_left, status_id } = req.body;
+    db.UPDATE.update_card([ id, summary, experience, skills, education, avatar, profile, project_id, swiped_right, swiped_left, status_id ])
         .then( promise => res.status(200).send(promise))
         .catch( err => res.status(500).send(err) )
 });
