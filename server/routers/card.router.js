@@ -63,7 +63,7 @@ cardRouter.put('/update/:id', (req, res) => {
 // Not sure want to use; dont want to ever delete cards
 cardRouter.put('/delete/:id', (req, res) => {
     const db = getDb();
-    db.DELETE.delete_card(req.params.id)
+    db.DELETE.delete_cards(req.params.id)
         .then( () => res.status(200).send() )
         .catch( err => res.status(500).send(err) )
 });

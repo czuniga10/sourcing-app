@@ -11,7 +11,7 @@ passport.use('login', new Strategy(
         // but passport-local requires we use the "username" keyword.
         // Hence why username is this instance is expecting an email address.
 
-        db.find_user_by_email([ username ])
+        db.get_user_by_email([ username ])
             .then( user => {
                 if (!user[0] || user[0].password !== password) {
                     message = 'Email or password is incorrect.';

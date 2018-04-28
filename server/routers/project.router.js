@@ -40,9 +40,13 @@ projectRouter.put('/update/:id', (req, res) => {
 //need to set all associated li_profiles to user 1 = me
 projectRouter.put('/delete/:id', (req, res) => {
     const db = getDb();
-    db.DELETE.delete_user(req.params.id)
-        .then( () => res.status(200).send() )
+    const id = req.params.id;
+    db.DELETE.delete_cards(id)
+        .then ( () => res.status(200).send() )
         .catch( err => res.status(500).send(err) )
+        return db.DELETE.delete_project(id)
+            .then ( () => res.status(200).send() )
+            .catch( err => res.status(500).send(err) )
 });
 
 module.exports = projectRouter;
