@@ -17,9 +17,11 @@
   },
   "homepage": "https://github.com/czuniga10/sourcing-app#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "express": "^4.16.3",
+    "jsonwebtoken": "^8.2.1",
     "massive": "^4.7.2",
     "nodemon": "^1.17.3",
     "npm": "^5.8.0",
