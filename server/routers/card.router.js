@@ -45,8 +45,8 @@ cardRouter.get('/:projectId/:cardId', (req, res) => {
 //test works
 cardRouter.post('/create', (req, res) => {
     const db = getDb();
-    const { summary, experience, skills, education, avatar, project_id, swiped_right, swiped_left } = req.body;
-    db.CREATE.create_card([ summary, experience, skills, education, avatar, project_id, swiped_right, swiped_left ])
+    const {name, summary, company, experience, years, past_company, past_experience, past_years, skill1, skill2, skill3, degree, school, school_years, avatar, profile, project_id, swiped_right, swiped_left, status_id } = req.body;
+    db.CREATE.create_card([name, summary, company, experience, years, past_company, past_experience, past_years, skill1, skill2, skill3, degree, school, school_years, avatar, profile, project_id, swiped_right, swiped_left, status_id ])
         .then( (promise) => res.status(200).send(promise) )
         .catch( err => res.status(500).send(err) )
 });
@@ -54,8 +54,8 @@ cardRouter.post('/create', (req, res) => {
 cardRouter.put('/update/:id', (req, res) => {
     const db = getDb();
     const id = req.params.id;
-    const { summary, experience, skills, education, avatar, profile, project_id, swiped_right, swiped_left, status_id } = req.body;
-    db.UPDATE.update_card([ id, summary, experience, skills, education, avatar, profile, project_id, swiped_right, swiped_left, status_id ])
+    const { name, summary, company, experience, years, past_company, past_experience, past_years, skill1, skill2, skill3, degree, school, school_years, avatar, profile, project_id, swiped_right, swiped_left, status_id } = req.body;
+    db.UPDATE.update_card([ id, name, summary, company, experience, years, past_company, past_experience, past_years, skill1, skill2, skill3, degree, school, school_years, avatar, profile, project_id, swiped_right, swiped_left, status_id ])
         .then( promise => res.status(200).send(promise))
         .catch( err => res.status(500).send(err) )
 });

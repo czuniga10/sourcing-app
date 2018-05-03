@@ -1,0 +1,23 @@
+.card-wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.card-holder {
+    border: solid;
+    height: 75vh;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.button-holder {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    margin-top: 20px;
+    width: 500px;
+}
