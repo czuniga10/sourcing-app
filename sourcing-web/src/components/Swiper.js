@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import style from './Swiper.css';
-
-import 
+import './Swiper.css';
+import { getReadyCards } from '../services/profiles.services';
+import CardFiller from './CardFiller';
 
 class Swiper extends Component {
     constructor(props) {
@@ -12,12 +12,21 @@ class Swiper extends Component {
             nope: false
         }
 
-    this.handleYupClick = this.handleYupClick.bind(this);
-    this.handleNopeClick = this.handleNopeClick.bind(this);
+    // this.handleYupClick = this.handleYupClick.bind(this);
+    // this.handleNopeClick = this.handleNopeClick.bind(this);
 
     }
     componentDidMount() {
-
+        getReadyCards()
+        .then( res => {
+            if (res.status !== 200){
+                console.log(res);
+            }
+            else{
+                this.setState({ profile: res.data });
+                console.log(this.state.profiles);
+            }
+        })
     }
 
 
@@ -30,6 +39,13 @@ class Swiper extends Component {
 
     }
     render() {
+        // const profiles = this.state.profiles;
+        // const displayCardItems = profiles.map( profile => {
+        //     const index = profiles.indexOf(profile);
+        //     return(
+        //         <CardFiller key={index} profile={profile}/>
+        //     )
+        // })
         return(
             <div className="card-wrapper">
                 <div className="card-holder">
