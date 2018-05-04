@@ -1,10 +1,10 @@
 import { createStore, combineReducers } from 'redux';
-import profileInfo from './reducer/profileInfo.reducer';
-
-
+import projectInfo from './reducer/projectInfo.reducer';
+import userInfo from './reducer/userInfo.reducer'
 
 let rootReducer = combineReducers({
-    profileInfo
+    projectInfo,
+    userInfo
 })
 
 

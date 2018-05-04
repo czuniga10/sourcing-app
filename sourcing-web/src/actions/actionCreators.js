@@ -1,6 +1,6 @@
 // export const UPDATE_AUTH = "UPDATE_AUTH";
-// export const UPDATE_USER = "UPDATE_USER";
-// export const UPDATE_CUSTOMER = "UPDATE_CUSTOMER";
+export const UPDATE_USER = "UPDATE_USER";
+export const UPDATE_PROJECT = "UPDATE_PROJECT"
 // export const UPDATE_ORDER = "UPDATE_ORDER";
 // export const ADD_TO_CART = "ADD_TO_CART";
 export const GET_CARD = "GET_CARD";
@@ -14,19 +14,19 @@ export const GET_CARD = "GET_CARD";
 //     }
 // }
 
-// export function updateUser(user){
-//     return {
-//         type: UPDATE_USER,
-//         payload: user
-//     }
-// }
+export function updateUser(user){
+    return {
+        type: UPDATE_USER,
+        payload: user
+    }
+}
 
-// export function updateCustomer(customer){
-//     return {
-//         type: UPDATE_CUSTOMER,
-//         payload: customer
-//     }
-// }
+export function updateProject(project){
+    return {
+        type: UPDATE_PROJECT,
+        payload: project
+    }
+}
 
 // export function updateOrder(order){
 //     return {

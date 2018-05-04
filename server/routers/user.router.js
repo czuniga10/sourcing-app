@@ -10,6 +10,15 @@ userRouter.get('/:id', (req, res) => {
         .then( user => res.status(200).send(user))
         .catch( err => res.status(500).send(err))
 });
+
+userRouter.get('/:email', (req, res) => {
+    const db = getDb();
+    const email = req.params.email;
+    // const {email} = req.body;
+    db.READ.get_user_by_email( [email] )
+        .then( user => res.status(200).send(user))
+        .catch( err => res.status(500).send(err))
+});
 //test worked
 userRouter.post('/register', (req, res) => {
     const db = getDb();

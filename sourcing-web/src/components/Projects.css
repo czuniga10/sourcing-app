@@ -1,0 +1,23 @@
+.proj-wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column
+}
+.proj-holder {
+    width: 80vw;
+    height: 150px;
+    border: solid grey;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    margin-bottom: 35px;
+    border-radius: 10px;
+}
+.name {
+    
+}
