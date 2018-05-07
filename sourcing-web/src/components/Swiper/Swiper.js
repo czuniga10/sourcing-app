@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './Swiper.css';
-import { getReadyCards } from '../services/profiles.services';
-import CardFiller from './CardFiller';
+import { getReadyCards } from '../../services/profiles.services';
+import SwiperItem from './SwiperItem/SwiperItem';
 
 class Swiper extends Component {
     constructor(props) {
@@ -17,14 +17,16 @@ class Swiper extends Component {
 
     }
     componentDidMount() {
-        getReadyCards()
+        let id = this.props.match.params.id;
+        getReadyCards(id)
         .then( res => {
+            console.log(res.data);
             if (res.status !== 200){
                 console.log(res);
             }
             else{
                 this.setState({ profile: res.data });
-                console.log(this.state.profiles);
+                
             }
         })
     }

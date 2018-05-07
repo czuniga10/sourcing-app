@@ -3,7 +3,7 @@ export const UPDATE_USER = "UPDATE_USER";
 export const UPDATE_PROJECT = "UPDATE_PROJECT"
 // export const UPDATE_ORDER = "UPDATE_ORDER";
 // export const ADD_TO_CART = "ADD_TO_CART";
-export const GET_CARD = "GET_CARD";
+// export const GET_CARD = "GET_CARD";
 // export const EMPTY_CART = "EMPTY_CART";
 // export const DELETE_ITEM = "DELETE_ITEM";
 
@@ -54,9 +54,9 @@ export function updateProject(project){
 //     }
 // }
 
-export function getCard(card){
-    return {
-        type: GET_CARD,
-        payload: card
-    }
-}
+// export function getCard(card){
+//     return {
+//         type: GET_CARD,
+//         payload: card
+//     }
+// }

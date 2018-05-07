@@ -3,8 +3,8 @@ import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './App.css';
 
-import Swiper from './components/Swiper';
-import Projects from './components/Projects';
+import Swiper from './components/Swiper/Swiper';
+import Projects from './components/Projects/Projects';
 
 import { findUserInfo } from './services/user.services';
 
@@ -16,32 +16,32 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state={
-      // loading: true
+      loading: true
     }
   }
 
   componentDidMount(){
-    findUserInfo(4)
+    findUserInfo(1)
       .then( res => {
+        console.log(res.data[0]);
         let newUserInfo = res.data[0];
         this.props.updateUser(newUserInfo)
-        // this.setState({loading: false})
+        this.setState({loading: false})
         ;
       })
   }
 
     render() {
-      // const {loading} = this.state;
+      const {loading} = this.state;
       return (
-        // !loading && 
+        !loading && 
         <div className="App">
-          <Route exact path='/' component={Projects} />        
-          <Route path='/swiper' component={Swiper} />
+          <Route exact path='/' component={Projects} />
+          <Route path='/swiper/:id' component={Swiper} />
         </div>
       );
     }
   }
-
 
 function mapStateToProps(state){
   return state;
